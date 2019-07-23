@@ -255,6 +255,7 @@ DEPENDENCIES
   config
   dotenv-rails
   faker
+  i18n
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   mysql2 (>= 0.4.4, < 0.6.0)
