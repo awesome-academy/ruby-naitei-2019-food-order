@@ -34,3 +34,4 @@ config/environments/*.local.yml
 .idea/*
 .ruby-version
 vendor/bundle
+.DS_Store
