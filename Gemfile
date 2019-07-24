@@ -26,6 +26,10 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+  gem "capistrano", "~> 3.10.1"
+  gem "capistrano-rails", "~> 1.3.1" 
+  gem "capistrano-rbenv", "~> 2.1"
+  gem "capistrano3-puma", "~> 3.1", ">= 3.1.1"
 end
 
 group :test do
