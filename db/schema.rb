@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 2019_07_22_080130) do
 
-  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date"
-    t.integer "restaurant_id", null: false
+    t.integer "restaurant_id"
     t.float "discount", default: 0.0
     t.datetime "start_time_order"
     t.datetime "end_time_order"
@@ -29,29 +29,29 @@ ActiveRecord::Schema.define(version: 2019_07_22_080130) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
-    t.integer "daily_id", null: false
-    t.integer "food_id", null: false
+  create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "daily_id"
+    t.integer "food_id"
     t.integer "price"
     t.text "review"
     t.integer "star"
-    t.integer "user_id", null: false
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.integer "default_price"
-    t.integer "restaurant_id", null: false
+    t.integer "restaurant_id"
     t.boolean "status"
     t.float "average_star"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.string "type"
     t.float "average_star"
@@ -61,9 +61,9 @@ ActiveRecord::Schema.define(version: 2019_07_22_080130) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=latin1", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.integer "social_id", null: false
+    t.integer "social_id"
     t.string "access_token"
     t.string "refresh_token"
     t.datetime "created_at", null: false
