@@ -2,9 +2,11 @@ class Restaurant < ApplicationRecord
   has_many :foods
   has_many :dailies
 
-  private
+  class << self
+    private
 
-  def self.inheritance_column
-    nil
+    def inheritance_column
+      nil
+    end
   end
 end

@@ -40,5 +40,4 @@ current
 releases/
 repo/
 revisions.log
-shared/
 config/deploy/staging.rb
