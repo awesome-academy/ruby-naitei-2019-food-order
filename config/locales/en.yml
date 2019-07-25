@@ -1,5 +1,15 @@
 en:
+  application_title: "Food Order"
   user_created: "User was successfully created."
   user_updated: "User was successfully updated."
   user_destroyed: "User was successfully destroyed."
   not_user: "Not found User."
+
+  admin_panel: "Admin Panel"
+  self_account: "My Account"
+  dashboard: "Dashboard"
+  logout: "Log Out"
+  manage_users: "Manage Users"
+  ads: "Ads"
+  write_news: "Manage Daily Foods"
+  edit_website: "Manage Restaurants"
