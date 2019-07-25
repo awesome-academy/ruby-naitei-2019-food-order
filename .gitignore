@@ -35,3 +35,10 @@ config/environments/*.local.yml
 .ruby-version
 vendor/bundle
 .DS_Store
+config/secrets.yml
+current
+releases/
+repo/
+revisions.log
+shared/
+config/deploy/staging.rb
