@@ -1,0 +1,44 @@
+<% provide :title, t("manage_restaurants") %>
+
+<%= render "shared/admin_header" %>
+
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <h1 class="ml-2"><%= t "manage_restaurants" %></h1>
+
+  <table class="table ml-2">
+    <thead>
+      <tr>
+        <th><%= t "restaurant.name" %></th>
+        <th><%= t "restaurant.type" %></th>
+        <th><%= t "restaurant.address" %></th>
+        <th colspan="3"><%= t "actions" %></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.name %></td>
+          <td><%= restaurant.type %></td>
+          <td><%= restaurant.address %></td>
+          <td><%= link_to t("show"), restaurant, class: "btn btn-info" %></td>
+          <td><%= link_to t("edit"), edit_restaurant_path(restaurant), class: "btn btn-warning" %></td>
+          <td>
+            <%= link_to t("destroy"),
+              restaurant,
+              method: :delete,
+              data: { confirm: t("confirm") },
+              class: "btn btn-danger"
+            %>
+            </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to t("restaurant.new_path"), new_restaurant_path, class: "btn btn-success ml-2" %>
+</main>

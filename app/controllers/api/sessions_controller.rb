@@ -1,6 +1,5 @@
 module Api
   class SessionsController < ApplicationController
-
     private
 
     def google_auth
@@ -9,7 +8,6 @@ module Api
       user = User.create_from_omniauth(access_token)
 
       session[:user_id] = user.id
-      # Access_token is used to authenticate request made from the rails application to the google server
       user.access_token = access_token.credentials.token
       # Refresh_token to request new access_token
       # Note: Refresh_token is only sent once during the first request
@@ -22,7 +20,7 @@ module Api
     end
 
     def login
-      self.google_auth
+      google_auth
     end
 
     def destroy
@@ -36,11 +34,11 @@ module Api
     def is_authenticated
       if :authenticate_user!
         render json: {
-          :is_logged_in => TRUE
+          is_logged_in: TRUE
         }
       else render json: {
-          :is_logged_in => FALSE
-        }
+        is_logged_in: FALSE
+      }
       end
     end
   end
