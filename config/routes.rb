@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     root "users#index"
     get "admins/dashboard"
     resources :users
+    resources :restaurants
   end
   get "auth/:provider/callback", to: "api/sessions#google_auth"
   get "auth/check", to: "api/sessions#is_authenticated"
