@@ -1,8 +1,9 @@
 require_relative "boot"
-
 require "rails/all"
 
 Bundler.require(*Rails.groups)
+Bundler.require(*Rails.groups)
+Dotenv::Railtie.load
 
 module Myapp
   class Application < Rails::Application
