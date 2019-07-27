@@ -5,13 +5,26 @@ import App from './App'
 import router from './router'
 import store from './store/index'
 import {sync} from 'vuex-router-sync'
+import axios from 'axios'
+import vClickOutside from 'v-click-outside'
+import Notifications from 'vue-notification'
 
+export default axios.create({
+  baseURL: process.env.API_HOST,
+  headers: {
+    'Content-Type': 'application/json'
+  }
+})
 console.log(process.env.api_host)
 Vue.config.productionTip = false
-require('bootstrap/dist/css/bootstrap.min.css')
+// require('bootstrap/dist/css/bootstrap.min.css')
+Vue.use(router)
+Vue.use(vClickOutside)
+Vue.use(Notifications)
+
 sync(store, router);
 
-function getCookie(name) {
+Vue.prototype.getCookie = (name) => {
   let nameEQ = name + "=";
   let ca = document.cookie.split(';');
   for (let i = 0; i < ca.length; i++) {
@@ -22,10 +35,13 @@ function getCookie(name) {
   return null;
 }
 
+Vue.prototype.loading = true
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
-  template: '<App/>'
+  template: '<App/>',
 })

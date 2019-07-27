@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="gtco-loader"></div>
+        <div class="gtco-loader" v-show="loading"></div>
         <div id="page">
             <left-bar/>
             <main-content/>
@@ -18,6 +18,19 @@
         components: {
             LeftBar: LeftBar,
             MainContent: MainContent
-        }
+        },
+      data() {
+          return {
+
+          }
+      },
+
+      mounted() {
+
+      },
+
+      created() {
+          this.loading = false;
+      }
     }
 </script>

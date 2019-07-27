@@ -30,7 +30,7 @@ function getCookie(name) {
 const auth = {
   state: {
     user: emptyUser,
-    token: getCookie('token') ? getCookie('token') : null
+    token:  window.localStorage.getItem('token') ?  window.localStorage.getItem('token') : null
   },
   mutations: {
     [types.SAVE_TOKEN](state, {token}) {
@@ -58,10 +58,12 @@ const auth = {
       return new Promise((resolve, reject) => {
         get(process.env.api_host + `/auth/check`)
           .then(({data}) => {
-            commit(types.FETCH_USER_SUCCESS, {user: data});
+            console.log(data)
+            commit(types.FETCH_USER_SUCCESS, {user: data.current_user});
             resolve();
           })
-          .catch(() => {
+          .catch((err) => {
+            console.log(err)
             commit(types.FETCH_USER_FAILURE);
             reject();
           });
@@ -69,58 +71,9 @@ const auth = {
 
     },
 
-    login({commit, state}) {
-      console.log(process.env.api_login_google);
-      let ggLoginPopup = window.open('http://' + process.env.api_login_google, 'Google Auth', 'height=600,width=450');
-      let self = this;
-      let INTERVAL = 500;
-      let LOGIN_TIME_LIMIT = 5 * 60 * 1000;
-      let loginTime = 0;
-      let timeLoginFails = 0;
-      let loginInterval = setInterval(function () {
-        loginTime += INTERVAL;
-        if (ggLoginPopup.closed) {
-          let token = getCookie('token');
-          if (token) {
-            self.dispatch('auth/saveToken', {token}).then();
-
-            self.dispatch('auth/fetchUser')
-              .then(() => {
-                clearInterval(loginInterval);
-                self.loggingIn = false;
-                self.$router.push({name: 'Index'});
-              })
-              .catch(() => {
-                clearInterval(loginInterval);
-                self.loggingIn = false;
-              });
-          } else {
-            if(!self.isLoginFbFail) {
-              timeLoginFails = loginTime;
-            }
-            self.isLoginFbFail = true;
-            self.errorLoginFbFail = 'Có vấn đề khi đăng nhập bằng tài khoản Google của bạn. ' +
-              'Vui lòng liên hệ quản trị viên để biết thêm chi tiết';
-            self.loggingIn = false;
-          }
-        }
-        if (timeLoginFails > 0 && (loginTime - timeLoginFails) > 3000 && self.isLoginFbFail) {
-          self.isLoginFbFail = false;
-          clearInterval(loginInterval);
-          self.loggingIn = false;
-        }
-        if (loginTime > LOGIN_TIME_LIMIT) {
-          clearInterval(loginInterval);
-          self.timeout = true;
-          self.loggingIn = false;
-          self.isLoginFbFail = false
-        }
-      }, INTERVAL);
-    },
-
     logout({commit, state}) {
       return new Promise((resolve, reject) => {
-        post(process.env.API_HOST + `/api/auth/logout`)
+        post(process.env.api_host + `/auth/logout`)
           .then(() => {
             commit(types.LOGOUT);
             resolve();

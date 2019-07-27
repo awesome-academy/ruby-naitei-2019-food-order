@@ -2,24 +2,28 @@
 <html>
 <head>
   <title>Myapp</title>
+  <%= javascript_include_tag "application", "data-turbolinks-track": "reload" %>
+
 </head>
 
 <body>
 <script type="text/javascript">
-  (function foo() {
-    console.log("abc");
-    function setCookie(name,value,days) {
-      var expires = "";
-      if (days) {
-        var date = new Date();
-        date.setTime(date.getTime() + (days*24*60*60*1000));
-        expires = "; expires=" + date.toUTCString();
-      }
-      document.cookie = name + "=" + (value || "")  + expires + "; path=/";
-    }
+  function getCookie(name) {
+    var value = "; " + document.cookie;
+    var parts = value.split("; " + name + "=");
+    if (parts.length == 2) return parts.pop().split(";").shift();
+  }
 
-    setCookie('token', "<%= @token %>", 1)
-    window.close();
+  (function foo() {
+    CrossStorageHub.init([
+      {origin: /.*/,            allow: ['get']},
+      {origin: /.*/, allow: ['get', 'set', 'del']}
+    ]);
+
+    let test = getCookie('jwt_access')
+    const jwt_access = JSON.parse(JSON.stringify(test))
+    localStorage.setItem('jwt_access', jwt_access)
+    window.close()
   }())
 </script>
 </body>

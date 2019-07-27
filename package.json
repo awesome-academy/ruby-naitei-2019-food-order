@@ -4,6 +4,7 @@
   "dependencies": {
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
+    "cross-storage": "^1.0.0",
     "vue-cli": "^2.9.6"
   }
 }

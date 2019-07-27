@@ -1,93 +1,455 @@
 <template>
+  <div>
     <div id="particles" class="gtco-section">
-        <div class="gtco-container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
-                    <h2 class="cursive-font">Today Menu</h2>
-                    <p>Lee Sin Restaurant</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_1.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_1.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Fresh Mushrooms</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$19.15</span></p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_2.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_2.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Cheese and Garlic Toast</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$20.99</span></p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_3.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_3.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Grilled Chiken Salad</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$8.99</span></p>
-
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_4.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_4.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Organic Egg</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$12.99</span></p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_5.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_5.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Tomato Soup with Chicken</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$23.10</span></p>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-6">
-                    <a href="/static/images/img_6.jpg" class="fh5co-card-item image-popup">
-                        <figure>
-                            <div class="overlay"><i class="ti-plus"></i></div>
-                            <img src="/static/images/img_6.jpg" alt="Image" class="img-responsive">
-                        </figure>
-                        <div class="fh5co-text">
-                            <h2>Salad with Crispy Chicken</h2>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-                            <p><span class="price cursive-font">$5.59</span></p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+      <div class="gtco-container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center gtco-heading">
+            <h2 class="cursive-font">DogsLand Restaurant</h2>
+            <p>Today Menu</p>
+          </div>
         </div>
+        <div class="row row-1">
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="thumbnail">
+              <div id="myCarousel-5" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#myCarousel-5" data-slide-to="0" class="active"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="1"></li>
+                  <li data-target="#myCarousel-5" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                  <div class="item active content">
+                    <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
+                  </div>
+
+                  <div class="item content">
+                    <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                  </div>
+                </div>
+
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#myCarousel-5" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#myCarousel-5" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+              <div class="caption">
+                <h4><a href="#">Chicken Rice</a></h4>
+                <h4>$700.99</h4>
+                <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
+                  unknown printer took a galley of tk.</p>
+              </div>
+              <div class="row">
+                <div class="ratings col-md-7">
+                  <p class="hoshi">
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    (15 reviews)
+                  </p>
+                </div>
+                <div class="qty col-md-5">
+                  <span class="minus bg-dark">-</span>
+                  <input type="number" class="count" name="qty" value="0">
+                  <span class="plus bg-primary">+</span>
+                </div>
+              </div>
+              <div class="space-ten"></div>
+              <div class="btn-ground text-center">
+                <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i
+                  class="fa fa-search" @click="showDetail"></i> Quick View
+                </button>
+              </div>
+              <div class="space-ten"></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    <item-detail v-show="showPopup"/>
+  </div>
 </template>
+<script>
+  import ItemDetail from './ItemDetail'
+
+  export default {
+    name: 'MainContent',
+    data() {
+      return {
+        showPopup: false,
+      }
+    },
+    components: {
+      ItemDetail: ItemDetail
+    },
+
+    mounted() {
+      particleground(document.getElementById('particles'), {
+        dotColor: '#5cbdaa',
+        lineColor: '#5cbdaa'
+      });
+    },
+
+    methods: {
+      showDetail() {
+        this.showPopup = true
+      }
+    }
+  }
+</script>
