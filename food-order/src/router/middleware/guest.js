@@ -1,6 +1,6 @@
 import store from '../../store/index'
 
-export default function (to, from, next) {
+export default (to, from, next) => {
     if (!store.state.auth.token) {
         next();
     }
@@ -8,13 +8,13 @@ export default function (to, from, next) {
         if(!store.state.auth.user.id){
             store.dispatch('auth/fetchUser')
                 .then(() => {
-                    next({name: 'Index'});
+                    next({name: 'index'});
                 })
                 .catch(() => {
                     next()
                 });
         } else {
-            next({name: 'Index'});
+            next({name: 'index'});
         }
     }
 };
