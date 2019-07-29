@@ -3,10 +3,10 @@
   <ul class="utilities">
     <br>
     <li class="users">
-      <%= link_to t("self_account"), "#" %>
+      <%= link_to t("self_account"), edit_admin_registration_path %>
     </li>
     <li class="logout warn">
-      <%= link_to t("logout"), admin_logout_path, method: :delete %>
+      <%= link_to t("logout"), destroy_admin_session_path , method: :delete %>
     </li>
   </ul>
 </header>

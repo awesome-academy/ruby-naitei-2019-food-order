@@ -1,13 +1,13 @@
 <nav role='navigation'>
   <ul class="main">
     <li class="dashboard">
-      <%= link_to t("dashboard"), admins_dashboard_path %>
+      <%= link_to t("dashboard"), restaurants_path %>
     </li>
     <li class="edit">
       <%= link_to t("manage_restaurants"), restaurants_path %>
     </li>
     <li class="write">
-      <%= link_to t("write_news"), "#" %>
+      <%= link_to t("write_news"), edit_daily_path(Daily.last) %>
     </li>
     <li class="users">
       <%= link_to t("manage_users"), "#" %>

@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2019_08_06_031413) do
 
-  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.datetime "created_at", null: false
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
   end
 
-  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "food_id"
     t.integer "user_id"
     t.text "comment"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "dailies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "date"
     t.integer "restaurant_id"
     t.float "discount", default: 0.0
@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "daily_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "daily_id"
     t.integer "food_id"
     t.integer "price"
@@ -56,17 +56,16 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.integer "count"
   end
 
-  create_table "food_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "food_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image_link"
     t.integer "food_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "type"
-    t.integer "default_price", default: 0
+    t.integer "default_price"
     t.integer "restaurant_id"
     t.boolean "status", default: true
     t.float "average_star", default: 5.0
@@ -75,7 +74,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.float "average_star", default: 0.0
     t.integer "selected_count", default: 0
@@ -84,14 +83,14 @@ ActiveRecord::Schema.define(version: 2019_08_06_031413) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "user_favorite_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "user_favorite_foods", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "food_id"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "email"

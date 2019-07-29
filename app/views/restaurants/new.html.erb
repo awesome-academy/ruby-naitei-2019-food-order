@@ -1,13 +1,9 @@
 <% provide :restaurant_button, t("restaurant.new_submit") %>
-
 <%= render "shared/admin_header" %>
-
 <%= render "shared/admin_sidenav" %>
 
 <main role="main">
   <h1><%= t "restaurant.new" %></h1>
-
   <%= render "form", restaurant: @restaurant %>
-
   <%= link_to t("back"), restaurants_path %>
 </main>
