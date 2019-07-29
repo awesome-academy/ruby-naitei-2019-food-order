@@ -6,7 +6,7 @@ class AdminSessionsController < ApplicationController
 
     if admin && admin.authenticate(params[:session][:password])
       log_in admin
-      redirect_to admins_dashboard_path
+      redirect_to admins_path
     else
       flash.now[:danger] = t "flash.login_fail"
       render :new
@@ -15,6 +15,6 @@ class AdminSessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to root_path
+    redirect_to admin_login_path
   end
 end
