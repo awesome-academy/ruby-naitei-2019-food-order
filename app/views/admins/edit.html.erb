@@ -1,0 +1,10 @@
+<% provide :title, t("admin_panel") %>
+<%= render "shared/admin_header" %>
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <h1>Editing Admin</h1>
+  <%= render "form", admin: @admin %>
+  <%= link_to t("show"), @admin %> |
+  <%= link_to t("back"), admins_path %>
+</main>

@@ -3,7 +3,7 @@
   <ul class="utilities">
     <br>
     <li class="users">
-      <%= link_to t("self_account"), "#" %>
+      <%= link_to t("self_account"), admin_path(current_admin) %>
     </li>
     <li class="logout warn">
       <%= link_to t("logout"), admin_logout_path, method: :delete %>

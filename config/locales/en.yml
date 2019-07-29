@@ -21,14 +21,21 @@ en:
   not_authorized: "Not authorized"
   malicious_activity: "Malicious activity detected"
   not_found_email: "Cannont find such email/password combination"
-  
+  successfully: "Admin was successfully created."
+  not_admin: "You not Admin."
+  admins: "Admins list"
+  admin_saved: "Prohibited this admin from being saved:"
+  show: "Show"
+  back: "Back"
+  edit: "Edit"
+
   admin_login:
     title: "Log In as Admin"
     username: "Username"
     password: "Password"
     button: "Login"
 
-  restaurant: 
+  restaurant:
     start_case: "Restaurant"
     new: "New Restaurant"
     edit: "Editing Restaurant"
