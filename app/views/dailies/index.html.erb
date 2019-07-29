@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dailies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>Discount</th>
+      <th>Start time order</th>
+      <th>End time order</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dailies.each do |daily| %>
+      <tr>
+        <td><%= daily.date %></td>
+        <td><%= daily.discount %></td>
+        <td><%= daily.start_time_order %></td>
+        <td><%= daily.end_time_order %></td>
+        <td><%= link_to 'Show', daily %></td>
+        <td><%= link_to 'Edit', edit_daily_path(daily) %></td>
+        <td><%= link_to 'Destroy', daily, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to t("add_daily"), new_daily_path %>

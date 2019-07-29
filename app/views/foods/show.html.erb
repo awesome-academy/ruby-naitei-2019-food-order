@@ -1,0 +1,12 @@
+<%= render "shared/admin_header" %>
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <div class="row container">
+    <aside class="col-md-12">
+      <h1><%= @food.name %></h1>
+      <h3><%= t("default_price") %> : <%= @food.default_price %>$</h3>
+      <%= image_tag "burger.jpg" %>
+    </aside>
+  </div>
+</main>

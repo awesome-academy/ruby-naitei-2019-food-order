@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   scope "(:locale)", locale: /en/ do
     root "users#index"
     get "admins/dashboard"
+    resources :foods
     resources :users
     resources :restaurants
+    resources :dailies
   end
   get "auth/:provider/callback", to: "api/sessions#google_auth"
   get "auth/check", to: "api/sessions#is_authenticated"
