@@ -18,6 +18,9 @@ en:
   edit: "Edit"
   confirm: "Are you sure?"
   actions: "Actions"
+  not_authorized: "Not authorized"
+  malicious_activity: "Malicious activity detected"
+  not_found_email: "Cannont find such email/password combination"
   
   restaurant: 
     start_case: "Restaurant"

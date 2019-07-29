@@ -1,0 +1,14 @@
+<%= render "shared/admin_header" %>
+
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <p><%= @restaurant.name %></p>
+  <p><%= @restaurant.type %></p>
+  <p><%= @restaurant.address %></p>
+  <p><%= @restaurant.average_star %></p>
+  <p><%= @restaurant.selected_count %></p>
+
+  <%= link_to t("edit"), edit_restaurant_path(@restaurant) %> |
+  <%= link_to t("back"), restaurants_path %>
+</main>

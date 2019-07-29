@@ -46,9 +46,10 @@ class RestaurantsController < ApplicationController
   end
 
   private
-  
+
   def find_restaurant
     @restaurant = Restaurant.find_by id: params[:id]
+    redirect_to restaurants_url unless @restaurant
   end
 
   def restaurant_params
