@@ -6,9 +6,11 @@ Rails.application.routes.draw do
     resources :restaurants
   end
   get "auth/:provider/callback", to: "api/sessions#google_auth"
-  get "auth/check", to: "api/sessions#is_authenticated"
+  get "auth/check", to: "api/sessions#is_authenticated?"
   post "auth/logout", to: "api/sessions#destroy"
   get "cross", to: "api/sessions#cross"
+  get "food/list", to: "api/foods#index"
+  put "user/update", to: "api/users#update"
   namespace "api", :as => "api" do
     get "auth/failure", to: redirect("/")
     get "auth/login", to: "sessions#login"
