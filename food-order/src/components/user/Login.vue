@@ -56,6 +56,7 @@
       },
 
       login() {
+        this.isLogin = true;
         console.log(process.env.api_login_google);
         let ggLoginPopup = window.open('http://' + process.env.api_login_google, 'Google Auth', 'height=600,width=450');
         let self = this;
