@@ -6,7 +6,7 @@
       <%= link_to t("self_account"), "#" %>
     </li>
     <li class="logout warn">
-      <%= link_to t("logout"), "" %>
+      <%= link_to t("logout"), admin_logout_path, method: :delete %>
     </li>
   </ul>
 </header>

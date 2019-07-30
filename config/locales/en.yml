@@ -22,6 +22,12 @@ en:
   malicious_activity: "Malicious activity detected"
   not_found_email: "Cannont find such email/password combination"
   
+  admin_login:
+    title: "Log In as Admin"
+    username: "Username"
+    password: "Password"
+    button: "Login"
+
   restaurant: 
     start_case: "Restaurant"
     new: "New Restaurant"
@@ -42,3 +48,5 @@ en:
     update_failed: " can't be updated!"
     delete_success: " deleted"
     delete_failed: " can't be deleted!"
+    login_fail: "Failed Login!"
+    please_login: "Please Login"
