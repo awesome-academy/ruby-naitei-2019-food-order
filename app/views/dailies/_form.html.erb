@@ -1,0 +1,27 @@
+<%= form_for(@daily) do |form| %>
+  <%= render "shared/error_messages", object: form.object %>
+
+  <%= form.label t "daily.date" %>
+  <%= form.date_field :date, class: "form-control" %>
+
+  <%= form.label t "daily.restaurant" %>
+  <%= select("daily",
+    "restaurant_id",
+    Restaurant.all.collect {|restaurant| [ restaurant.name, restaurant.id ] },
+    { include_blank: true },
+    class: "form-control")
+  %>
+
+  <%= form.label t "daily.discount" %>
+  <%= form.number_field :discount, class: "form-control" %>
+
+  <%= form.label t "daily.start_time_order" %>
+  <%= form.time_select :start_time_order, class: "form-control" %>
+
+  <%= form.label t "daily.end_time_order" %>
+  <%= form.time_select :end_time_order, class: "form-control" %>
+
+  <br/>
+
+  <%= form.submit yield(:daily_button), class: "btn btn-primary" %>
+<% end %>

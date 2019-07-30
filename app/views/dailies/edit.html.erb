@@ -1,0 +1,10 @@
+<% provide :title, t("edit_daily") %>
+<% provide :daily_button, t("daily.edit_submit") %>
+
+<%= render "shared/admin_header" %>
+
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <%= render "form", daily: @daily %>
+</main>

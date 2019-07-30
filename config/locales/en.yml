@@ -13,6 +13,9 @@ en:
   ads: "Ads"
   write_news: "Manage Daily Foods"
   manage_restaurants: "Manage Restaurants"
+  today_daily: "Today's Foods"
+  new_daily: "New Daily"
+  edit_daily: "Edit Daily"
   back: "Back"
   show: "Show"
   edit: "Edit"
@@ -79,6 +82,16 @@ en:
   unlocks:
     unlock_instructions: "Resend unlock instructions"
     titlecase_email: "Email"
+    
+  daily:
+    start_case: "Daily"
+    date: "Date"
+    restaurant: "Restaurant"
+    discount: "Discount"
+    start_time_order: "Start time order"
+    end_time_order: "End time order"
+    new_submit: "Create Daily"
+    edit_submit: "Update Daily"
 
   flash:
     create_success: " is created!"
