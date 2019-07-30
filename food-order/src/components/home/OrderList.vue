@@ -28,17 +28,9 @@
                   </div>
                 </div>
                 <ul class="food-name">
-                  <li class="row">
-                    <div class="col-md-7 amout">Com xa xiu trung ran</div>
-                    <div class="col-md-5">3 x 30k</div>
-                  </li>
-                  <li class="row">
-                    <div class="col-md-7 amout">Com xa xiu trung ran</div>
-                    <div class="col-md-5">2 x 20k</div>
-                  </li>
-                  <li class="row">
-                    <div class="col-md-7 amout">Com xa xiu trung ran</div>
-                    <div class="col-md-5">1 x 10k</div>
+                  <li class="row" v-for="food in current_order.orderList">
+                    <div class="col-md-7 amout">{{food.name}}</div>
+                    <div class="col-md-5">{{food.number}} x {{formatCurrency(food.default_price)}}$</div>
                   </li>
                 </ul>
               </div>
@@ -49,11 +41,11 @@
                 <a href="#">Total:</a>
               </div>
               <div class="col-md-3">
-                <a href="#">100$</a>
+                <a href="#">{{formatCurrency(total_price)}}$</a>
               </div>
             </div>
             <div class="form-group">
-              <button type="button" class="btn btn-1"><span class="glyphicon glyphicon-heart"></span> SUBMIT</button>
+              <button type="button" class="btn btn-1" @click="submitOrder"><span class="glyphicon glyphicon-heart"></span> ORDER</button>
             </div>
           </div>
         </div>
@@ -62,8 +54,35 @@
   </div>
 </template>
 <script>
+  import {post} from '../../helper/request'
   export default {
     name: 'orderList',
+
+    data() {
+      let current_order = this.$store.state.orderList.filter(o => o.user_id === this.$store.state.auth.user.id)
+      return {
+        current_user: this.$store.state.auth.user,
+        orderList: this.$store.state.orderList,
+        current_order: current_order.length ? current_order[0] : {orderList: []}
+      }
+    },
+
+    computed: {
+      'total_price': function() {
+        let total = 0
+        this.current_order.orderList.forEach((o) => {
+          total += (o.number * o.default_price)
+        })
+        return total
+      },
+    },
+
+    watch: {
+      'orderList': function () {
+        let current_order = this.$store.state.orderList.filter(o => o.user_id === this.$store.state.auth.user.id)
+        this.current_order = current_order.length ? current_order[0] : {orderList: []}
+      }
+    },
 
     mounted() {
       function getTimeRemaining(endtime) {
@@ -100,17 +119,34 @@
       $(document).ready(function(){
         var deadline = new Date(Date.parse(new Date()) + 24 * 60 * 1000);
         initializeClock('clockdiv', deadline);
-        $('.count').prop('disabled', true);
-        $(document).on('click','.plus',function(){
-          $('.count').val(parseInt($('.count').val()) + 1 );
-        });
-        $(document).on('click','.minus',function(){
-          $('.count').val(parseInt($('.count').val()) - 1 );
-          if ($('.count').val() == -1) {
-            $('.count').val(0);
-          }
-        });
+
       });
+    },
+
+    methods: {
+      submitOrder() {
+        let url = process.env.api_host + '/submit-order'
+        let payload = {
+          orders: this.current_order.orderList
+        }
+        post(url, payload)
+          .then(res => {
+            console.log('res: ', res)
+            let index = this.$store.state.orderList.indexOf(this.current_order)
+            if(index > 0) {
+              this.$store.state.orderList.splice(index, 1)
+              window.localStorage.setItem('orderList', JSON.stringify(this.$store.state.orderList))
+              this.$notify({
+                group: 'foo',
+                type: 'success',
+                title: 'Order Successfully',
+                text: 'Thanks for your order! Let it be!',
+                duration: 5000,
+                speed: 1000
+              });
+            }
+          })
+      }
     }
   }
 

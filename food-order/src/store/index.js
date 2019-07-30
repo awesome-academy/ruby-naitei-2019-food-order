@@ -12,6 +12,8 @@ const store = new Vuex.Store({
         isLogin: false,
         accessKey: null,
         user: null,
+        orderList: window.localStorage.getItem('orderList') ? JSON.parse(window.localStorage.getItem('orderList')) : [],
+        gtc_loading: true,
     },
 
     getters: {},

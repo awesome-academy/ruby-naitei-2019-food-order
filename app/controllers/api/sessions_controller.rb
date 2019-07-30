@@ -33,7 +33,7 @@ module Api
       render json: :ok
     end
 
-    def is_authenticated?
+    def is_authenticated
       render json: {
         current_user: current_user
       }
@@ -41,12 +41,6 @@ module Api
 
     def cross
       render "popup/login-google-popup.html.erb"
-    end
-
-    private
-
-    def not_found
-      render json: {error: t("not_found_email")}, status: :not_found
     end
   end
 end

@@ -18,7 +18,10 @@
         loading_string: '.',
         count_increase_loading: true,
         jwt_access: '',
-        isLogin: false
+        isLogin: false,
+        errorLoginFbFail: '',
+        isLoginFbFail: false,
+        cross_get_success: false,
       }
     },
 
@@ -57,6 +60,7 @@
 
       login() {
         this.isLogin = true;
+        this.cross_get_success = false;
         console.log(process.env.api_login_google);
         let ggLoginPopup = window.open('http://' + process.env.api_login_google, 'Google Auth', 'height=600,width=450');
         let self = this;
@@ -70,19 +74,52 @@
             this.crossGet()
             let token = self.jwt_access
             if (token) {
-              self.$store.dispatch('auth/saveToken', {token}).then();
+              self.$store.dispatch('auth/saveToken', {token}).then(res => {
+              }).catch((err) => {
+                console.log(err);
+                }
+              );
 
               self.$store.dispatch('auth/fetchUser')
                 .then(() => {
                   clearInterval(loginInterval);
                   self.loggingIn = false;
+                  this.$notify({
+                    group: 'foo',
+                    type: 'success',
+                    title: 'Welcome ' + this.$store.state.auth.user.first_name,
+                    text: 'Let Order Your Food',
+                    duration: 5000,
+                    speed: 1000
+                  });
                   self.$router.push({name: 'index'});
                 })
                 .catch(() => {
+                  this.isLogin = false;
+                  this.$notify({
+                    group: 'foo',
+                    type: 'error',
+                    title: 'Login Failed',
+                    text: 'Something error when login google with your google account. Please check it or re click Google Login Button',
+                    duration: 5000,
+                    speed: 1000
+                  });
                   clearInterval(loginInterval);
                   self.loggingIn = false;
                 });
             } else {
+              if(this.cross_get_success) {
+                this.isLogin = false;
+                this.$notify({
+                  group: 'foo',
+                  type: 'error',
+                  title: 'Login Failed',
+                  text: 'Something error when login google with your google account. Please check it or re click Google Login Button',
+                  duration: 5000,
+                  speed: 1000
+                });
+                clearInterval(loginInterval);
+              }
               if(!self.isLoginFbFail) {
                 timeLoginFails = loginTime;
               }
@@ -93,6 +130,14 @@
             }
           }
           if (timeLoginFails > 0 && (loginTime - timeLoginFails) > 3000 && self.isLoginFbFail) {
+            this.$notify({
+              group: 'foo',
+              type: 'error',
+              title: 'Login Failed',
+              text: 'Over Time! Please re click login button',
+              duration: 5000,
+              speed: 1000
+            });
             self.isLoginFbFail = false;
             clearInterval(loginInterval);
             self.loggingIn = false;
@@ -113,6 +158,7 @@
           return storage.get('jwt_access');
         }).then((res) => {
           this.jwt_access = res
+          this.cross_get_success = true;
         }).catch((err) => {
           // Handle error
           console.log(err)

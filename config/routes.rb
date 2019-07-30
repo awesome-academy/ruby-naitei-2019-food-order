@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get "auth/check", to: "api/sessions#is_authenticated"
   post "auth/logout", to: "api/sessions#destroy"
   get "cross", to: "api/sessions#cross"
+  get "food/list", to: "api/foods#index"
+  post "/submit-order", to: "api/foods#save"
+  put "user/update", to: "api/users#update"
+  post "upload-avatar", to: "api/users#avatar"
   namespace "api", :as => "api" do
     get "auth/failure", to: redirect("/")
     get "auth/login", to: "sessions#login"

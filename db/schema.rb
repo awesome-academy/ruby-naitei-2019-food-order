@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_29_070134) do
+ActiveRecord::Schema.define(version: 2019_08_02_025607) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "username"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2019_07_29_070134) do
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "count"
   end
 
   create_table "food_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -55,13 +56,13 @@ ActiveRecord::Schema.define(version: 2019_07_29_070134) do
     t.integer "restaurant_id"
     t.boolean "status"
     t.float "average_star"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "restaurants", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
-    t.string "type"
     t.float "average_star"
     t.integer "selected_count"
     t.string "address"
@@ -70,13 +71,15 @@ ActiveRecord::Schema.define(version: 2019_07_29_070134) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name"
-    t.integer "social_id"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "avatar"
     t.string "access_token"
     t.string "refresh_token"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password"
+    t.string "password_digest"
   end
 
 end

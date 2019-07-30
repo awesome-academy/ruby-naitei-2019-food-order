@@ -7,7 +7,6 @@ class CreateDailyFoods < ActiveRecord::Migration[5.2]
       t.text :review
       t.integer :star
       t.integer :user_id
-
       t.timestamps
     end
   end
