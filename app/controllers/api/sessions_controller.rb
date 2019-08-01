@@ -42,11 +42,5 @@ module Api
     def cross
       render "popup/login-google-popup.html.erb"
     end
-
-    private
-
-    def not_found
-      render json: {error: t("not_found_email")}, status: :not_found
-    end
   end
 end
