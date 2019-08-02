@@ -1,9 +1,10 @@
 <% provide :title, t("admin_panel") %>
-
 <%= render "shared/admin_header" %>
-
 <%= render "shared/admin_sidenav" %>
 
 <main role="main">
-
+  <h1><%= t "admins" %></h1>
+  <ul>
+    <%= render @admins %>
+  </ul>
 </main>

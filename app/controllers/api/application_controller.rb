@@ -10,10 +10,6 @@ module Api
       @current_user ||= User.find(payload["user_id"])
     end
 
-    def not_authorized
-      render json: {error: t("not_authorized")}, status: :unauthorized
-    end
-
     def record_not_found
       redirect_to root_path
     end
