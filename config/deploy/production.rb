@@ -59,3 +59,12 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+server '42.113.206.204', user: 'sontc', roles: %w{app db web}
+set :deploy_to, "/home/sontc/quanghm/ruby-naitei-2019-food-order/#{fetch(:rails_env)}"
+set :branch, :deploy
+set :stage, :production
+set :ssh_options, {
+    #keys: %w(~/.ssh/shift-manager.pem),
+    #auth_methods: %w(publickey)
+    password: 'congson@123'
+}

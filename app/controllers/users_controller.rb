@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: %i(show edit update destroy)
+  before_action :load_user, only: %i(show edit update)
 
   def show; end
 
@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit; end
-
   def create; end
+
+  def edit; end
 
   def update
     respond_to do |format|
@@ -33,6 +33,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit :name
+    params.require(:user).permit :first_name, :last_name
   end
 end

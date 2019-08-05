@@ -7,7 +7,7 @@ class CreateFoods < ActiveRecord::Migration[5.2]
       t.integer :restaurant_id
       t.boolean :status
       t.float :average_star
-
+      t.string :description
       t.timestamps
     end
   end

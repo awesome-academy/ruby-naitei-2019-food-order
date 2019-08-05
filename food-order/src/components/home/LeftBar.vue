@@ -5,12 +5,12 @@
         <div class="gtco-container">
 
           <div class="row">
-            <div class="col-sm-5 col-xs-12">
+            <div class="col-md-5 col-xs-12">
               <div id="gtco-logo">Yasuo</div>
             </div>
-            <div class="col-xs-7 text-right menu-1">
+            <div class="col-md-7 text-right menu-1">
               <ul>
-                <li class="active"><img class="img-circle" style="width: calc(0.8em + 1vw); height: calc(0.8em + 1vw)" :src="current_user.avatar" alt=""></li>
+                <li class="active"><img class="img-circle" style="width: calc(0.8em + 1vw); height: calc(0.8em + 1vw)" :src="handleAvatar(current_user.avatar)" alt=""></li>
                 <li class="active has-dropdown">
                   <span class="cursor-pointer" @click="showOptions" v-click-outside="closeOptions">{{current_user.last_name}}</span>
                   <ul class="dropdown">
@@ -22,7 +22,6 @@
               </ul>
             </div>
           </div>
-
         </div>
       </nav>
 
@@ -36,7 +35,7 @@
                   <label class="cursive-font">Pick your foods!</label>
                 </div>
               </div>
-              <profile v-if="show_profile"/>
+              <profile v-if="show_profile" @changeUser="changeUser" @back="back"/>
               <order-list v-else/>
             </div>
           </div>
@@ -98,6 +97,14 @@
             }, 1000)
 
         });
+      },
+
+      changeUser(user) {
+        this.current_user = user
+      },
+
+      back() {
+        this.show_profile = false;
       }
     }
   }

@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <a href="#" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
+          <a href="#" id="close-popup" data-dismiss="modal" class="class pull-right"><span class="glyphicon glyphicon-remove"></span></a>
 
         </div>
         <div class="modal-body">
@@ -11,43 +11,33 @@
             <div class="col-md-6 product_img">
               <div class="col-md-12">
                 <div class="thumbnail-1 thumbnail">
-                  <div id="myCarousel-9" class="carousel slide" data-ride="carousel">
+                  <div :id="`myCarousel-` + product.id" class="carousel slide" data-ride="carousel">
                     <!-- Indicators -->
                     <ol class="carousel-indicators">
-                      <li data-target="#myCarousel-9" data-slide-to="0" class="active"></li>
-                      <li data-target="#myCarousel-9" data-slide-to="1"></li>
-                      <li data-target="#myCarousel-9" data-slide-to="2"></li>
+                      <li :data-target="`#myCarousel-` + product.id" :data-slide-to="index" v-for="(img, index) in product.images" :class="(index === 0) ? 'active' : ''"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
-                      <div class="item active content-1">
-                        <img src="/static/images/food.jpg" alt="Los Angeles" class="img-responsive img-cus">
-                      </div>
-
-                      <div class="item content-1">
-                        <img src="/static/images/bg.jpg" alt="Chicago" class="img-responsive img-cus">
-                      </div>
-
-                      <div class="item content-1">
-                        <img src="/static/images/img_2.jpg" alt="New york" class="img-responsive img-cus">
+                      <div class="item content-1" v-for="(img, index) in product.images" :class="(index === 0) ? 'active' : ''">
+                        <img :src="host + img.image_link" :alt="img.image_link" class="img-responsive img-cus" style="width:100%">
                       </div>
                     </div>
 
                     <!-- Left and right controls -->
-                    <a class="left carousel-control" href="#myCarousel-9" data-slide="prev">
+                    <a class="left carousel-control" :href="`#myCarousel-` + product.id" data-slide="prev">
                       <span class="glyphicon glyphicon-chevron-left"></span>
                       <span class="sr-only">Previous</span>
                     </a>
-                    <a class="right carousel-control" href="#myCarousel-9" data-slide="next">
+                    <a class="right carousel-control" :href="`#myCarousel-` + product.id" data-slide="next">
                       <span class="glyphicon glyphicon-chevron-right"></span>
                       <span class="sr-only">Next</span>
                     </a>
                   </div>
                   <div class="caption">
-                    <h4><a href="#">Chicken Rice</a></h4>
-                    <h4>$700.99</h4>
-                    <p class="naiyo">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of tk.</p>
+                    <h4><a href="#">{{product.name}}</a></h4>
+                    <h4>${{formatCurrency(product.default_price)}}</h4>
+                    <p class="naiyo">{{product.description}}</p>
                   </div>
                   <div class="row">
                     <div class="ratings col-md-7">
@@ -61,14 +51,14 @@
                       </p>
                     </div>
                     <div class="qty col-md-5">
-                      <span class="minus bg-dark">-</span>
-                      <input type="number" class="count" name="qty" value="0">
-                      <span class="plus bg-primary">+</span>
+                      <span class="minus bg-dark" @click="$emit('decreaseNumber', product, -1)" :disabled="!product.number">-</span>
+                      <input type="number" class="count" name="qty" :value="product.number" min="0">
+                      <span class="plus bg-primary" @click="$emit('increaseNumber', product, 1)">+</span>
                     </div>
                   </div>
                   <div class="space-ten"></div>
                   <div class="btn-ground text-center">
-                    <button type="button" class="btn btn-2"><i class="fa fa-shopping-cart"></i> Order Food</button>
+                    <button type="button" class="btn btn-2" @click="orderFood(product)"><i class="fa fa-shopping-cart"></i> Order Food</button>
                     <button type="button" class="btn btn-3" data-toggle="modal" data-target="#product_view"><i class="fa fa-search"></i> Add to Favorite!</button>
                   </div>
                 </div>
@@ -85,7 +75,7 @@
                         <ul class="media-list">
                           <li class="media">
                             <a class="pull-left" href="#">
-                              <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                              <img class="media-object img-circle" :src="handleAvatar(current_user.avatar)" alt="profile">
                             </a>
                             <div class="media-body">
                               <div class="well well-lg">
@@ -114,7 +104,7 @@
                         <ul class="media-list">
                           <li class="media">
                             <a class="pull-left" href="#">
-                              <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                              <img class="media-object img-circle" :src="handleAvatar(current_user.avatar)" alt="profile">
                             </a>
                             <div class="media-body">
                               <div class="well well-lg">
@@ -136,7 +126,7 @@
                         <ul class="media-list">
                           <li class="media">
                             <a class="pull-left" href="#">
-                              <img class="media-object img-circle" src="https://s3.amazonaws.com/uifaces/faces/twitter/dancounsell/128.jpg" alt="profile">
+                              <img class="media-object img-circle" :src="handleAvatar(current_user.avatar)" alt="profile">
                             </a>
                             <div class="media-body">
                               <div class="well well-lg">
@@ -167,6 +157,20 @@
 </template>
 <script>
   export default {
-    name: 'ItemDetail'
+    name: 'ItemDetail',
+    props: ["product"],
+    data() {
+      return {
+        current_user: this.$store.state.auth.user,
+        host: process.env.api_host,
+      }
+    },
+
+    methods: {
+      orderFood(product) {
+        this.$emit('order', product)
+        $('#close-popup').click()
+      }
+    }
   }
 </script>

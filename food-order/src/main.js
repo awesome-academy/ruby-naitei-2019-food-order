@@ -36,7 +36,38 @@ Vue.prototype.getCookie = (name) => {
 }
 
 Vue.prototype.loading = true
+let order = () => {
+  let orders = store.state.orderList.filter((o) => o.user_id === store.state.auth.user.id)
+  if(orders.length) {
+    return orders[0]
+  }
+  return []
+}
+Vue.prototype.current_user_orders = order()
 
+  Vue.prototype.handleAvatar = (avatar_link) => {
+  let tmp = "public/assets"
+  let result = avatar_link
+  if(avatar_link.includes(tmp)) {
+    result = avatar_link.replace(tmp, process.env.api_host + '/assets')
+  }
+  return result
+}
+Vue.prototype.formatCurrency = (amount, decimalCount = 0, decimal = ".", thousands = ",") => {
+  try {
+    decimalCount = Math.abs(decimalCount);
+    decimalCount = isNaN(decimalCount) ? 2 : decimalCount;
+
+    const negativeSign = amount < 0 ? "-" : "";
+
+    let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimalCount)).toString();
+    let j = (i.length > 3) ? i.length % 3 : 0;
+
+    return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimalCount ? decimal + Math.abs(amount - i).toFixed(decimalCount).slice(2) : "");
+  } catch (e) {
+    console.log(e)
+  }
+};
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

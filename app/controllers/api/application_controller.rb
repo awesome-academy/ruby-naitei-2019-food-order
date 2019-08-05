@@ -11,7 +11,7 @@ module Api
     end
 
     def not_authorized
-      render json: {error: t("not_authorized")}, status: :unauthorized
+      render json: {}, status: :unauthorized
     end
 
     def record_not_found

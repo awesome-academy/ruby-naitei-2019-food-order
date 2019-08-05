@@ -4,8 +4,10 @@ git_source(:github){|repo| "https://github.com/#{repo}.git"}
 gem "bcrypt", "~> 3.1.7"
 gem "bootsnap", ">= 1.1.0", require: false
 gem "bootstrap", "~> 4.3.1"
+gem "carrierwave"
 gem "coffee-rails", "~> 4.2"
 gem "config"
+gem "dotenv-rails", :require => "dotenv/rails-now"
 gem "faker"
 gem "i18n"
 gem "jbuilder", "~> 2.5"
@@ -17,6 +19,7 @@ gem "puma", "~> 3.11"
 gem "rack-cors"
 gem "rails", "~> 5.2.0"
 gem "sass-rails", "~> 5.0"
+gem "therubyracer", platforms: :ruby
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 
