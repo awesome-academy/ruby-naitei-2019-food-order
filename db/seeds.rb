@@ -39,8 +39,8 @@ daily = Daily.new
 daily.restaurant_id = restaurant.id
 daily.date = DateTime.now.to_date
 daily.discount = 10.0
-daily.start_time_order = Faker::Time.between(0.days.ago, DateTime.now, :morning)
-daily.end_time_order = Faker::Time.between(daily.start_time_order, daily.start_time_order + 1, :morning)
+daily.start_time_order = DateTime.now.in_time_zone("Hanoi").change({ hour: 9, min: 30, sec: 0 })
+daily.end_time_order = DateTime.now.in_time_zone("Hanoi").change({ hour: 11, min: 0, sec: 0 })
 daily.save
 
 foods = Food.all

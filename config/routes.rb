@@ -14,6 +14,12 @@ Rails.application.routes.draw do
   post "/submit-order", to: "api/foods#save"
   put "user/update", to: "api/users#update"
   post "upload-avatar", to: "api/users#avatar"
+  post "add-favourite", to: "api/foods#add_favorite"
+  post "remove-favourite", to: "api/foods#remove_favorite"
+  post "comment/create", to: "api/comments#save"
+  get "comment/index", to: "api/comments#index"
+  put "comment/update", to: "api/comments#update"
+  post "comment/destroy", to: "api/comments#destroy"
   namespace "api", :as => "api" do
     get "auth/failure", to: redirect("/")
     get "auth/login", to: "sessions#login"

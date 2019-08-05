@@ -14,6 +14,10 @@ const store = new Vuex.Store({
         user: null,
         orderList: window.localStorage.getItem('orderList') ? JSON.parse(window.localStorage.getItem('orderList')) : [],
         gtc_loading: true,
+        show_order_detail: false,
+        today_discount: 0,
+        favourite_list: [],
+        finished_order: false,
     },
 
     getters: {},

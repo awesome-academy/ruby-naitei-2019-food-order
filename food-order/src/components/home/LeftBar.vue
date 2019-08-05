@@ -14,9 +14,10 @@
                 <li class="active has-dropdown">
                   <span class="cursor-pointer" @click="showOptions" v-click-outside="closeOptions">{{current_user.last_name}}</span>
                   <ul class="dropdown">
-                    <li class="cursor-pointer" @click="showUserProfile">Edit Profile</li>
-                    <li class="cursor-pointer" @click="featureNotRelease">View History</li>
-                    <li class="cursor-pointer" @click="logout">Log Out</li>
+                    <li class="cursor-pointer text-black-50" @click="showUserProfile">Edit Profile</li>
+                    <li class="cursor-pointer text-black-50" @click="featureNotRelease">View History</li>
+                    <li class="cursor-pointer text-black-50" @click="featureNotRelease">Favorite Lists</li>
+                    <li class="cursor-pointer text-black-50" @click="logout">Log Out</li>
                   </ul>
                 </li>
               </ul>
@@ -113,4 +114,9 @@
   .cursor-pointer:hover {
     color: #FBB448
   }
+
+  .text-black-50 {
+    color: #1a1a1a;
+  }
+
 </style>
