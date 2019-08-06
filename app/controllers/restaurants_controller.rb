@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
   before_action :find_restaurant, only: %i(show edit update destroy)
-  before_action :logged_in_admin
+  before_action :authenticate_admin!
 
   def index
     @restaurants = Restaurant.all

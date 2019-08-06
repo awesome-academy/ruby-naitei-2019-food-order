@@ -36,19 +36,17 @@ module Api
       if !daily.nil?
         daily_id = daily.id
         current_user_id = current_user.id
-        orders = params['orders']
+        orders = params["orders"]
         daily_orders = []
         if orders
           orders.each do |order|
             daily_food = DailyFood.new
             daily_food.daily_id = daily_id
-            daily_food.food_id = order['id']
-            daily_food.price = order['default_price']
-            daily_food.count = order['number']
+            daily_food.food_id = order["id"]
+            daily_food.price = order["default_price"]
+            daily_food.count = order["number"]
             daily_food.user_id = current_user_id
-            if daily_food.save!
-              daily_orders << daily_food
-            end
+            daily_orders << daily_food if daily_food.save!
           end
         end
         render json: {
@@ -56,7 +54,7 @@ module Api
         }
       else
         render json: {
-            daily_food: nil
+          daily_food: nil
         }
       end
     end
