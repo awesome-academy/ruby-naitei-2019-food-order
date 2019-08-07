@@ -1,0 +1,7 @@
+<p><%= t "admin.mailers.greet" %><%= @resource.email %>!</p>
+
+<p><%= t "admin.mailers.text1" ></p>
+
+<p><%= t "admin.mailers.text2" ></p>
+
+<p><%= link_to t("admin.mailers.unlock"), unlock_url(@resource, unlock_token: @token) %></p>

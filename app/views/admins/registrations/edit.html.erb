@@ -1,0 +1,39 @@
+<h2><%= t "edit" %> <%= resource_name.to_s.humanize %></h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field">
+    <%= f.label t("unlocks.titlecase_email") %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+    <div><%= t "admin_login.confirm_waiting" %><%= resource.unconfirmed_email %></div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t("admin_login.password") %> <i><%= t "admin_login.leave_blank" %></i><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    <% if @minimum_password_length %>
+      <br />
+      <em><%= @minimum_password_length %><%= t "admin_login.minimum" %></em>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= f.label t("admin_login.password_confirm") %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  </div>
+
+  <div class="field">
+    <%= f.label t("admin_login.current_password") %> <i><%= t "admin_login.current_password_confirm" %></i><br />
+    <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit t("update") %>
+  </div>
+<% end %>
+
+<%= link_to t("back"), :back %>
