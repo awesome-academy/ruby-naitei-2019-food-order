@@ -5,6 +5,7 @@
     "boostrap": "^2.0.0",
     "bootstrap": "^4.3.1",
     "cross-storage": "^1.0.0",
+    "emoji-mart-vue": "^2.6.6",
     "vue-cli": "^2.9.6"
   }
 }

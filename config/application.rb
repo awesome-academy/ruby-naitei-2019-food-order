@@ -8,6 +8,8 @@ Dotenv::Railtie.load
 module Myapp
   class Application < Rails::Application
     config.load_defaults 5.2
+    config.time_zone = "Hanoi"
+    config.active_record.default_timezone = :local
     config.middleware.insert_before 0, Rack::Cors do
       allow do
         origins '*'

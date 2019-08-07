@@ -3,6 +3,8 @@ require "securerandom"
 class User < ApplicationRecord
   has_secure_password
   has_many :daily_foods
+  has_many :user_favorite_foods
+  has_many :comments
 
   class << self
     def create_from_omniauth auth
