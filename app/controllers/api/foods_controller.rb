@@ -49,9 +49,7 @@ module Api
             daily_food.price = order["default_price"]
             daily_food.count = order["number"]
             daily_food.user_id = current_user_id
-            if daily_food.save!
-              daily_orders << daily_food
-            end
+            daily_orders << daily_food if daily_food.save!
           end
         end
         render json: {

@@ -16,17 +16,52 @@ en:
   back: "Back"
   show: "Show"
   edit: "Edit"
+  update: "Update"
   confirm: "Are you sure?"
   actions: "Actions"
   not_authorized: "Not authorized"
   malicious_activity: "Malicious activity detected"
   not_found_email: "Cannont find such email/password combination"
+  signup: "Sign up"
+  forgot_password: "Forgot your password?"
+  not_recieve_confirm: "Didn't receive confirmation instructions?"
+  not_recieve_unlock: "Didn't receive unlock instructions?"
+  send_reset_password: "Send me reset password instructions"
+  change_password: "Change your password"
+  new_password: "New password"
+  new_password_confirm: "Confirm new password"
+  change_password_button: "Change my password"
   
+  admin:
+    mailers:
+      greet: "Hello "
+      text1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+      text2: "Click the link below to unlock your account:"
+      unlock: "Unlock my account"
+      text3: "We're contacting you to notify you that your password has been changed."
+      text4: "Someone has requested a link to change your password. You can do this through the link below."
+      text5: "If you didn't request this, please ignore this email."
+      text6: "Your password won't change until you access the link above and create a new one."
+      text7: "We're contacting you to notify you that your email is being changed to "
+      text8: "You can confirm your account email through the link below:"
+      confirm_account: "Confirm my account"
+
+    confirmations:
+      title: "Resend confirmation instructions"
+      email: "Email"
+
   admin_login:
     title: "Log In as Admin"
     username: "Username"
     password: "Password"
     button: "Login"
+    remember_me: "Remember me?"
+    password_confirm: "Confirm"
+    confirm_waiting: "Currently waiting confirmation for: "
+    leave_blank: "(leave blank if you don't want to change it)"
+    minimum: "characters minimum"
+    current_password_confirm: "(we need your current password to confirm your changes)"
+    current_password: "Current Password"
 
   restaurant: 
     start_case: "Restaurant"
@@ -40,6 +75,10 @@ en:
     new_submit: "Create Restaurant"
     update_submit: "Update Restaurant"
     new_path: "New Restaurant"
+
+  unlocks:
+    unlock_instructions: "Resend unlock instructions"
+    titlecase_email: "Email"
 
   flash:
     create_success: " is created!"

@@ -1,0 +1,5 @@
+<p><%= t "admin.mailers.greet" %><%= @email %>!</p>
+
+<p><%= t "admin.mailers.text8" ></p>
+
+<p><%= link_to t("admin.mailers.confirm_account"), confirmation_url(@resource, confirmation_token: @token) %></p>
