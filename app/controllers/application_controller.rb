@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
   before_action :set_locale
-  protect_from_forgery with: :exception
+  protect_from_forgery prepend: true
 
-  include AdminSessionsHelper
+  # include AdminSessionsHelper
 
   private
 
@@ -14,11 +14,11 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}
   end
 
-  def logged_in_admin
-    return if logged_in?
-    flash[:danger] = t "flash.please_login"
-    redirect_to admin_login_url
-  end
+  # def logged_in_admin
+  #   return if logged_in?
+  #   flash[:danger] = t "flash.please_login"
+  #   redirect_to admin_login_url
+  # end
 
   helper_method :current_user
 

@@ -11,7 +11,7 @@ module Api
     def update
       first_name = params[:first_name]
       last_name = params[:last_name]
-      if current_user.update({first_name: first_name, last_name: last_name})
+      if current_user.update(first_name: first_name, last_name: last_name)
         render json: {
           user: current_user
         }
@@ -19,15 +19,15 @@ module Api
     end
 
     def avatar
-      require 'fileutils'
+      require "fileutils"
       tmp = params[:avatar].tempfile
-      file = File.join("public/assets/images", Time.now.to_i.to_s + '_' + params[:avatar].original_filename)
+      file = File.join("public/assets/images", Time.now.to_i.to_s + "_" + params[:avatar].original_filename)
       FileUtils.cp tmp.path, file
-      File.chmod(0755, file)
-      if current_user.update({avatar: file})
+      File.chmod(0o755, file)
+      if current_user.update(avatar: file)
         render json: {
-            user: current_user,
-            file: file
+          user: current_user,
+          file: file
         }
       end
     end

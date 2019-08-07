@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :admins
   scope "(:locale)", locale: /en/ do
     root "users#index"
     get "admins/dashboard"
@@ -18,7 +19,4 @@ Rails.application.routes.draw do
     get "auth/login", to: "sessions#login"
     delete "signout", to: "sessions#destroy", as: "signout"
   end
-  get "/admin_login", to: "admin_sessions#new"
-  post "/admin_login", to: "admin_sessions#create"
-  delete "/admin_logout", to: "admin_sessions#destroy"
 end
