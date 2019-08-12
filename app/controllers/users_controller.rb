@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
   before_action :load_user, only: %i(show edit update)
+  before_action :authenticate_admin!, only: :index
+
+  def index
+    @users = User.by_name
+  end
 
   def show; end
 
