@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :user_favorite_foods
   has_many :comments
 
-  scope :by_name, ->{order :first_name, :last_name}
+  scope :order_by_name, ->{order :first_name, :last_name}
 
   class << self
     def create_from_omniauth auth

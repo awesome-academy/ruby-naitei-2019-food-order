@@ -9,6 +9,6 @@ RSpec.describe User, type: :model do
   end
   
   it "return a sorted by name array of result that match" do
-    User.by_name.should == [@user2, @user3, @user4, @user1]
+    User.order_by_name.should == [@user2, @user3, @user4, @user1]
   end
 end

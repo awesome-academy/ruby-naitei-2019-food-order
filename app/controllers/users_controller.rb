@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_admin!, only: :index
 
   def index
-    @users = User.by_name
+    @users = User.order_by_name
   end
 
   def show; end
