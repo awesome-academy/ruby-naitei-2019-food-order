@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_action :authenticate_admin!, only: :index
 
   def index
-    @users = User.order_by_name
+    @users = User.order_by_name.page(params[:page])
+                 .per(Settings.users_pagination)
   end
 
   def show; end
