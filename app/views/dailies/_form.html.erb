@@ -1,0 +1,42 @@
+<%= form_with(model: daily, local: true) do |form| %>
+  <% if daily.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(daily.errors.count, "error") %> prohibited this daily from being saved:</h2>
+
+      <ul>
+      <% daily.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name, @restaurant.name %>
+    <%= form.hidden_field :restaurant_id, value: @restaurant.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date %>
+    <%= form.date_field :date, value: DateTime.now.to_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :discount %>
+    <%= form.text_field :discount %>
+  </div>
+
+  <div class="field">
+    <%= form.label :start_time_order %>
+    <%= form.time_select :start_time_order %>
+  </div>
+
+  <div class="field">
+    <%= form.label :end_time_order %>
+    <%= form.time_select :end_time_order %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,36 @@
+<%= render "shared/admin_header" %>
+<%= render "shared/admin_sidenav" %>
+
+<main role="main" class="container">
+  <h1><%= t("edit_daily") %></h1>
+
+  <%= form_with(model: @daily, local: true) do |form| %>
+
+    <div class="field">
+      <%= form.label :date %>
+      <%= form.date_field :date, value: DateTime.now.to_date %>
+    </div>
+
+    <div class="field">
+      <%= form.label :discount %>
+      <%= form.text_field :discount %>
+    </div>
+
+    <div class="field">
+      <%= form.label :start_time_order %>
+      <%= form.time_select :start_time_order %>
+    </div>
+
+    <div class="field">
+      <%= form.label :end_time_order %>
+      <%= form.time_select :end_time_order %>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+
+  <%= link_to t("show"), @daily %> |
+  <%= link_to t("back"), restaurants_path %>
+</main>

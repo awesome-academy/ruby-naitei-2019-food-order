@@ -1,0 +1,5 @@
+<% @restaurant.foods.each do |food| %>
+  <li><%= link_to food.name, food %></li>
+  <li>default price: <%= food.default_price %>$</li>
+  <hr>
+<% end %>

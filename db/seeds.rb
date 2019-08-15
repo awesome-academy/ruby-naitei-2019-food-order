@@ -1,5 +1,6 @@
 Admin.create! username: "admin",
-              password: "admin"
+              email: "admin@gmail.com",
+              password: "123456"
 
 50.times do |n|
   user = User.new
@@ -17,8 +18,8 @@ end
   restaurant.save!
 end
 
-restaurants = Restaurant.take(9)
-9.times do |n|
+restaurants = Restaurant.take(3)
+3.times do |n|
   name = Faker::Food.dish
   description = Faker::Food.description
   default_price = Faker::Number.number(2)

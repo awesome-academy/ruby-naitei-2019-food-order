@@ -1,0 +1,33 @@
+<%= render "shared/admin_header" %>
+<%= render "shared/admin_sidenav" %>
+
+<main role="main" class="container">
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Date:</strong>
+    <%= @daily.date.to_date %>
+  </p>
+
+  <p>
+    <strong>Restaurant:</strong>
+    <%= @daily.restaurant.name %>
+  </p>
+
+  <p>
+    <strong>Discount:</strong>
+    <%= @daily.discount %>
+  </p>
+
+  <p>
+    <strong>Start time order:</strong>
+    <%= @daily.start_time_order.to_date %>
+  </p>
+
+  <p>
+    <strong>End time order:</strong>
+    <%= @daily.end_time_order.to_date %>
+  </p>
+  <%= link_to t("edit"), edit_daily_path(@daily) %> |
+  <%= link_to t("back"), restaurants_path %>
+</main>

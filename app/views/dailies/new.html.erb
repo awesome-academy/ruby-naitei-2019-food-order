@@ -1,0 +1,9 @@
+<%= render "shared/admin_header" %>
+<%= render "shared/admin_sidenav" %>
+
+<main role="main" class="container">
+  <h1><%= t("new_daily") %></h1>
+
+  <%= render "form", daily: @daily %>
+  <%= link_to t("back"), restaurants_path %>
+</main>

@@ -31,7 +31,12 @@ en:
   new_password: "New password"
   new_password_confirm: "Confirm new password"
   change_password_button: "Change my password"
-  
+  add_daily: "Add to Daily"
+  successfully: "Daily was successfully created."
+  updated: "Daily was successfully updated."
+  edit_daily: "Editing Daily"
+  new_daily: "New Daily"
+
   admin:
     mailers:
       greet: "Hello "
@@ -63,7 +68,7 @@ en:
     current_password_confirm: "(we need your current password to confirm your changes)"
     current_password: "Current Password"
 
-  restaurant: 
+  restaurant:
     start_case: "Restaurant"
     new: "New Restaurant"
     edit: "Editing Restaurant"
