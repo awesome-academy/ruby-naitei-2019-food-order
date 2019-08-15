@@ -4,7 +4,7 @@ FactoryBot.define do
     type { "Boiled" }
     default_price { Faker::Number.positive }
     status { true }
-    average_star { Faker::Number.between(from: 1, to: 10) }
+    average_star { 5.2 }
     description { Faker::Food.description }
   end
 end

@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :restaurant do
     name { Faker::Restaurant.name }
-    average_star { Faker::Number.between(from: 1, to: 10) }
-    selected_count { Faker::Number.between(from: 1, to: 10) }
+    average_star { 5.0 }
+    selected_count { 5 }
     address { Faker::Address.full_address }
   end
 end
