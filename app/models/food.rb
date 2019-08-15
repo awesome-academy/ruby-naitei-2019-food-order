@@ -5,4 +5,16 @@ class Food < ApplicationRecord
   has_many :user_favorite_foods
   has_many :comments
   accepts_nested_attributes_for :food_images
+
+  validates :name, presence: true
+  validates :type, presence: true
+  validates :description, presence: true
+
+  class << self
+    private
+
+    def inheritance_column
+      nil
+    end
+  end
 end
