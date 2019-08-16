@@ -2,3 +2,4 @@ maximum_length_name: 50
 maximum_length_email: 255
 minimum_length_pass: 4
 users_pagination: 10
+authorized_email: !ruby/regexp '/\b[A-Z0-9._%a-z\-]+@sun-asterisk\.com\z/'

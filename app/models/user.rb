@@ -6,6 +6,9 @@ class User < ApplicationRecord
   has_many :user_favorite_foods
   has_many :comments
 
+  validates :email, format: {with: Settings.authorized_email,
+                             message: :unauthorized_email}
+
   scope :order_by_name, ->{order :first_name, :last_name}
 
   class << self
