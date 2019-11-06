@@ -1,0 +1,9 @@
+<% provide :title, t("today_daily") %>
+
+<%= render "shared/admin_header" %>
+
+<%= render "shared/admin_sidenav" %>
+
+<main role="main">
+  <%= link_to "Create today's food", new_daily_path, class: "btn btn-primary" %>
+</main>
